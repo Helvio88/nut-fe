@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import * as dayjs from 'dayjs';
 import { ClipboardService } from 'ngx-clipboard';
-import { NutTitle } from '../definitions/nut';
+import { NutDialogData, NutTitle } from '../definitions/nut';
 
 @Component({
   selector: 'app-title-dialog',
@@ -14,23 +14,19 @@ import { NutTitle } from '../definitions/nut';
 export class TitleDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public title: NutTitle,
+    public data: NutDialogData,
     private clipboard: ClipboardService,
     private snack: MatSnackBar,
     private pageTitle: Title
   ) {}
 
   ngOnInit(): void {
-    this.pageTitle.setTitle(this.title.name);
+    this.pageTitle.setTitle(this.data.title.name);
   }
 
   copyId(title: NutTitle): void {
     this.clipboard.copy(title.id);
     this.alert(`${title.id} copied to clipboard!`);
-  }
-
-  soon(): void {
-    this.alert('Coming soon...');
   }
 
   alert(message: string): void {
@@ -40,6 +36,6 @@ export class TitleDialogComponent implements OnInit {
   }
 
   getReleaseDate(): Date {
-    return dayjs(this.title.releaseDate.toString(), 'YYYYMMDD').toDate();
+    return dayjs(this.data.title.releaseDate.toString(), 'YYYYMMDD').toDate();
   }
 }

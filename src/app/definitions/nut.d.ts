@@ -52,6 +52,14 @@ export interface NutTitle {
   baseId: string;
   isDLC: boolean;
   idExt: number;
-  updateId: string;
+  updateId?: string;
   mtime?: number;
+}
+
+export interface NutDialogData {
+  title: NutTitle;
+  myDLCs: NutTitle[];
+  myUpdates: NutTitle[];
+  remoteDLCs: NutTitle[];
+  remoteUpdates: NutTitle[];
 }

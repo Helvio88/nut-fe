@@ -21,10 +21,17 @@ export class AppComponent implements OnInit {
   ) {}
   title = 'Nut';
   titles: NutTitle[] = [];
-  downloadedTitles: NutTitle[] = [];
-  notDownloadedTitles: NutTitle[] = [];
   search: NutGame[] = [];
   downloadedIds: string[] = [];
+
+  downloadedTitles: NutTitle[] = [];
+  notDownloadedTitles: NutTitle[] = [];
+
+  downloadedDLCs: NutTitle[] = [];
+  notDownloadedDLCs: NutTitle[] = [];
+
+  downloadedUpdates: NutTitle[] = [];
+  notDownloadedUpdates: NutTitle[] = [];
 
   cols = 12;
 
@@ -58,12 +65,54 @@ export class AppComponent implements OnInit {
         !title.isUpdate &&
         !this.downloadedIds.includes(title.id)
     );
+
+    // List of Downloaded DLCs
+    this.downloadedDLCs = this.titles.filter(
+      (title) => title.isDLC && this.downloadedIds.includes(title.id)
+    );
+
+    // List of Not Downloaded DLCs
+    this.notDownloadedDLCs = this.titles.filter(
+      (title) => title.isDLC && !this.downloadedIds.includes(title.id)
+    );
+
+    // List of Downloaded Updates
+    this.downloadedUpdates = this.titles.filter(
+      (title) => title.isUpdate && this.downloadedIds.includes(title.id)
+    );
+
+    // List of Not Downloaded DLCs
+    this.notDownloadedUpdates = this.titles.filter(
+      (title) => title.isUpdate && !this.downloadedIds.includes(title.id)
+    );
   }
 
   titleDialog(title: NutTitle): void {
+    const myDLCs = this.downloadedDLCs
+      .filter((dlc) => dlc.baseId === title.id)
+      .sort((dlc) => dlc.releaseDate);
+
+    const myUpdates = this.downloadedUpdates
+      .filter((update) => update.baseId === title.id)
+      .sort((dlc) => dlc.releaseDate);
+
+    const remoteDLCs = this.notDownloadedDLCs
+      .filter((dlc) => dlc.baseId === title.id)
+      .sort((dlc) => dlc.releaseDate);
+
+    const remoteUpdates = this.notDownloadedUpdates
+      .filter((update) => update.baseId === title.id)
+      .sort((dlc) => dlc.releaseDate);
+
     this.dialog
       .open(TitleDialogComponent, {
-        data: title,
+        data: {
+          title,
+          myDLCs,
+          myUpdates,
+          remoteDLCs,
+          remoteUpdates,
+        },
       })
       .afterClosed()
       .toPromise()
