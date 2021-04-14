@@ -134,21 +134,21 @@ export class AppComponent implements OnInit {
     if (environment.production) {
       return `/api/titleImage/${title.id}/${this.getGridSpan(title) * 200}`;
     }
-    return title.iconUrl;
+    return `/assets/images/${title.id}/icon.jpg`;
   }
 
   getBanner(title: NutTitle): string {
     if (environment.production) {
       return `/api/bannerImage/${title.id}`;
     }
-    return title.bannerUrl;
+    return `/assets/images/${title.id}/banner.jpg`;
   }
 
-  getScreenshot(title: NutTitle, index: number): string {
+  getScreenshot(title: NutTitle, i: number): string {
     if (environment.production) {
-      return `/api/screenshotImage/${title.id}/${index}`;
+      return `/api/screenshotImage/${title.id}/${i}`;
     }
-    return title.screenshots[index];
+    return `/assets/images/${title.id}/screenshot${i}.jpg`;
   }
 
   // General Purpose Status Messages
@@ -160,6 +160,6 @@ export class AppComponent implements OnInit {
 
   // Page title reset
   resetTitle(): void {
-    this.pageTitle.setTitle('Nut - Your Nintendo Switch Library');
+    this.pageTitle.setTitle('Nut - Library');
   }
 }
