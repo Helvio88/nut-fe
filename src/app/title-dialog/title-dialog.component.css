@@ -1,0 +1,15 @@
+mat-card {
+  max-width: 1000px;
+}
+
+.scroll {
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+mat-card-avatar {
+  cursor: pointer;
+}

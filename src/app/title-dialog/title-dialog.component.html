@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-header>
+    <img
+      mat-card-avatar
+      src="/api/titleImage/{{ title.id }}/64"
+      [matMenuTriggerFor]="menu"
+    />
+    <mat-menu #menu="matMenu">
+      <a
+        mat-menu-item
+        href="https://tinfoil.io/title/{{ title.id }}"
+        target="_blank"
+      >
+        <mat-icon>launch</mat-icon>
+        <span>Open in Tinfoil.io</span>
+      </a>
+      <a mat-menu-item href="/api/download/{{ title.id }}">
+        <mat-icon>download</mat-icon>
+        <span>Download</span>
+      </a>
+      <button mat-menu-item (click)="soon()">
+        <mat-icon>update</mat-icon>
+        <span>Updates</span>
+      </button>
+      <button mat-menu-item (click)="soon()">
+        <mat-icon>redeem</mat-icon>
+        <span>DLC</span>
+      </button>
+      <a mat-menu-item mat-dialog-close href="#">
+        <mat-icon>close</mat-icon>
+        <span>Close</span>
+      </a>
+    </mat-menu>
+    <mat-card-title>{{ title.name }}</mat-card-title>
+    <mat-card-subtitle
+      >Released: {{ getReleaseDate() | date: "shortDate" }} -
+      {{ title.size | fileSize }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <br />
+  <img
+    mat-card-image
+    src="/api/bannerImage/{{ title.id }}"
+    [alt]="title.name"
+    width="20%"
+  />
+  <mat-card-content>
+    {{ title.intro }}
+    <p class="scroll">{{ title.description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div align="end">
+      <button mat-button (click)="copyId(title)">Copy ID</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
