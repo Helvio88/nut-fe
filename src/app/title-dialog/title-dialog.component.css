@@ -13,3 +13,7 @@ mat-card {
 mat-card-avatar {
   cursor: pointer;
 }
+
+::ng-deep.mat-menu-panel {
+  max-width: none !important;
+}
