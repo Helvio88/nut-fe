@@ -25,7 +25,7 @@ export interface NutTitle {
   id: string;
   rightsId: string;
   name: string;
-  version: string;
+  version?: number;
   key: string;
   isDemo: boolean;
   region: string;
@@ -58,8 +58,7 @@ export interface NutTitle {
 
 export interface NutDialogData {
   title: NutTitle;
+  update: NutTitle;
   myDLCs: NutTitle[];
-  myUpdates: NutTitle[];
   remoteDLCs: NutTitle[];
-  remoteUpdates: NutTitle[];
 }

@@ -92,26 +92,25 @@ export class AppComponent implements OnInit {
       .filter((dlc) => dlc.baseId === title.id)
       .sort((dlc) => dlc.releaseDate);
 
-    const myUpdates = this.downloadedUpdates
-      .filter((update) => update.baseId === title.id)
-      .sort((dlc) => dlc.releaseDate);
-
     const remoteDLCs = this.notDownloadedDLCs
       .filter((dlc) => dlc.baseId === title.id)
       .sort((dlc) => dlc.releaseDate);
 
-    const remoteUpdates = this.notDownloadedUpdates
-      .filter((update) => update.baseId === title.id)
-      .sort((dlc) => dlc.releaseDate);
+    let update: NutGame | undefined;
+    if (title.updateId) {
+      update = this.search.find((game) => game.id === title.updateId);
+      if (update) {
+        update.version = update ? update.version / 65536 : 0;
+      }
+    }
 
     this.dialog
       .open(TitleDialogComponent, {
         data: {
           title,
+          update,
           myDLCs,
-          myUpdates,
           remoteDLCs,
-          remoteUpdates,
         },
       })
       .afterClosed()

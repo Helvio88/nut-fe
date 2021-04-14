@@ -40,17 +40,17 @@
   </a>
   <a mat-menu-item href="/api/download/{{ data.title.id }}">
     <mat-icon>download</mat-icon>
-    <span>Download</span>
+    <span>Download Base</span>
   </a>
   <a
     mat-menu-item
     href="/api/download/{{ data.title.updateId }}"
     target="_blank"
-    *ngIf="data.title.updateId"
-    [disabled]="!data.myUpdates.length"
+    *ngIf="data.update"
+    [disabled]="!data.update"
   >
     <mat-icon>update</mat-icon>
-    <span>Update</span>
+    <span>Download Update v{{ data.update.version }}</span>
   </a>
   <button
     mat-menu-item
