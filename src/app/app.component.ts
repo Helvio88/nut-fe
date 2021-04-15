@@ -42,7 +42,9 @@ export class AppComponent implements OnInit {
   id: string | null = '';
 
   async ngOnInit(): Promise<void> {
+    // Set Page Title
     this.resetTitle();
+
     // Search all Downloaded titles and create a list of IDs
     this.search = await this.nut.search();
     this.search.forEach((key) => this.downloadedIds.push(key.id));
@@ -135,13 +137,13 @@ export class AppComponent implements OnInit {
       .finally(() => this.resetTitle());
   }
 
-  // Material.io recommended breakpoints
+  // Material.io recommended Grid breakpoints
   // https://material.io/design/layout/responsive-layout-grid.html#breakpoints
   setCols(): void {
     this.cols = window.innerWidth < 600 ? 4 : window.innerWidth < 840 ? 8 : 14;
   }
 
-  // Minimum columns mathching maximum col/row span
+  // Minimum columns mathching maximum col/row span (Mobile Full Screen)
   getGridSpan(title: NutTitle): number {
     const numberOfTitles = this.downloadedTitles.length;
     const position = this.rankedDownloadedTitles.indexOf(title);

@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { NutService } from './services/nut.service';
 import { TinfoilService } from './services/tinfoil.service';
 import { TitleDialogComponent } from './title-dialog/title-dialog.component';
-import { RouterModule } from '@angular/router';
 import { FileSizePipe } from './pipes/file-size.pipe';
 
 @NgModule({
@@ -38,8 +37,8 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     MatBadgeModule,
     ClipboardModule,
   ],
+  exports: [],
   providers: [NutService, TinfoilService],
   bootstrap: [AppComponent],
-  exports: [RouterModule],
 })
 export class AppModule {}
