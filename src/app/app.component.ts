@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     );
 
     // Sort titles by Rank
-    this.downloadedTitles.sort((title) => title.rank);
+    this.rankedDownloadedTitles.sort((title) => title.rank);
 
     // List of Not Downloaded Titles
     this.notDownloadedTitles = this.titles.filter(
@@ -144,7 +144,7 @@ export class AppComponent implements OnInit {
   // Minimum columns mathching maximum col/row span
   getGridSpan(title: NutTitle): number {
     const numberOfTitles = this.downloadedTitles.length;
-    const position = this.downloadedTitles.indexOf(title);
+    const position = this.rankedDownloadedTitles.indexOf(title);
     return position <= numberOfTitles / 4
       ? 4
       : position <= numberOfTitles / 2
