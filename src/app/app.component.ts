@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     this.resetTitle();
 
     // Search all Downloaded titles and create a list of IDs
-    this.search = await this.nut.search();
+    this.search = await (await this.nut.search()).filter((game) => game.name);
     this.search.forEach((key) => this.downloadedIds.push(key.id));
 
     // Get a list of all existing titles
@@ -58,6 +58,7 @@ export class AppComponent implements OnInit {
         !title.isDLC &&
         !title.isDemo &&
         !title.isUpdate &&
+        title.name &&
         this.downloadedIds.includes(title.id)
     );
 
