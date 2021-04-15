@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
         this.downloadedIds.includes(title.id)
     );
 
+    this.downloadedTitles.sort((t1, t2) => t1.name.localeCompare(t2.name));
+
     // List of Not Downloaded Titles
     this.notDownloadedTitles = this.titles.filter(
       (title) =>
