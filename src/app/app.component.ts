@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
         this.downloadedIds.includes(title.id)
     );
 
+    this.downloadedTitles.sort(title => title.rank);
+
     // List of Not Downloaded Titles
     this.notDownloadedTitles = this.titles.filter(
       (title) =>
@@ -65,6 +67,8 @@ export class AppComponent implements OnInit {
         !title.isUpdate &&
         !this.downloadedIds.includes(title.id)
     );
+
+    this.notDownloadedTitles.sort(title => title.rank);
 
     // List of Downloaded DLCs
     this.downloadedDLCs = this.titles.filter(
@@ -126,7 +130,9 @@ export class AppComponent implements OnInit {
 
   // Minimum columns mathching maximum col/row span
   getGridSpan(title: NutTitle): number {
-    return title.rank < 20 ? 4 : title.rank < 50 ? 2 : 1;
+    const numberOfTitles = this.downloadedTitles.length;
+    const position = this.downloadedTitles.indexOf(title);
+    return position <= numberOfTitles / 4 ? 4 : position <= numberOfTitles / 2 ? 2 : 1;
   }
 
   getIcon(title: NutTitle): string {
