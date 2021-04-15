@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
   downloadedUpdates: NutTitle[] = [];
   notDownloadedUpdates: NutTitle[] = [];
 
+  rankedDownloadedTitles: NutTitle[] = [];
+
   cols = 12;
 
   window = window;
@@ -57,7 +59,20 @@ export class AppComponent implements OnInit {
         this.downloadedIds.includes(title.id)
     );
 
+    // Sort owned titles by Name
     this.downloadedTitles.sort((t1, t2) => t1.name.localeCompare(t2.name));
+
+    // List of Downloaded Titles for Ranking
+    this.rankedDownloadedTitles = this.titles.filter(
+      (title) =>
+        !title.isDLC &&
+        !title.isDemo &&
+        !title.isUpdate &&
+        this.downloadedIds.includes(title.id)
+    );
+
+    // Sort titles by Rank
+    this.downloadedTitles.sort((title) => title.rank);
 
     // List of Not Downloaded Titles
     this.notDownloadedTitles = this.titles.filter(
@@ -128,7 +143,13 @@ export class AppComponent implements OnInit {
 
   // Minimum columns mathching maximum col/row span
   getGridSpan(title: NutTitle): number {
-    return title.rank < 20 ? 4 : title.rank < 50 ? 2 : 1;
+    const numberOfTitles = this.downloadedTitles.length;
+    const position = this.downloadedTitles.indexOf(title);
+    return position <= numberOfTitles / 4
+      ? 4
+      : position <= numberOfTitles / 2
+      ? 2
+      : 1;
   }
 
   getIcon(title: NutTitle): string {
