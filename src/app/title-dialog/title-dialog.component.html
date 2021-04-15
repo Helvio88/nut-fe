@@ -32,6 +32,14 @@
 <mat-menu #titleMenu="matMenu">
   <a
     mat-menu-item
+    href="https://ec.nintendo.com/apps/{{ data.title.id }}/US"
+    target="_blank"
+  >
+    <mat-icon>shopping_bag</mat-icon>
+    <span>Nintendo eShop</span>
+  </a>
+  <a
+    mat-menu-item
     href="https://tinfoil.io/title/{{ data.title.id }}"
     target="_blank"
   >
