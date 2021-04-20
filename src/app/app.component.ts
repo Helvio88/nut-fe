@@ -141,18 +141,14 @@ export class AppComponent implements OnInit {
   // Material.io recommended Grid breakpoints
   // https://material.io/design/layout/responsive-layout-grid.html#breakpoints
   setCols(): void {
-    this.cols = window.innerWidth < 600 ? 4 : window.innerWidth < 840 ? 8 : 14;
+    this.cols = window.innerWidth < 600 ? 4 : window.innerWidth < 840 ? 8 : 12;
   }
 
   // Minimum columns mathching maximum col/row span (Mobile Full Screen)
   getGridSpan(title: NutTitle): number {
     const numberOfTitles = this.downloadedTitles.length;
     const position = this.rankedDownloadedTitles.indexOf(title);
-    return position <= numberOfTitles / 4
-      ? 4
-      : position <= numberOfTitles / 2
-      ? 2
-      : 1;
+    return position <= numberOfTitles / 3 ? 4 : 2;
   }
 
   getIcon(title: NutTitle): string {
