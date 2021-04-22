@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ClipboardModule } from 'ngx-clipboard';
 
@@ -39,6 +40,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     MatCardModule,
     MatButtonModule,
     MatMenuModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     MatBadgeModule,
     ClipboardModule,
