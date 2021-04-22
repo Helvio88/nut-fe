@@ -1,5 +1,6 @@
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -8,7 +9,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ClipboardModule } from 'ngx-clipboard';
@@ -23,11 +26,14 @@ import { FileSizePipe } from './pipes/file-size.pipe';
   declarations: [AppComponent, TitleDialogComponent, FileSizePipe],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatGridListModule,
     MatTooltipModule,
+    MatToolbarModule,
     MatDialogModule,
     MatIconModule,
     MatCardModule,

@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "@material/dialog": "^10.0.0",
+    "@mdi/font": "^5.9.55",
     "dayjs": "^1.10.4",
     "ngx-clipboard": "^14.0.1",
     "ngx-infinite-scroll": "^10.0.1",
@@ -46,5 +47,8 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"
-  }
+  },
+  "exports": [
+    "./"
+  ]
 }

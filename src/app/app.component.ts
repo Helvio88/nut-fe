@@ -20,9 +20,12 @@ export class AppComponent implements OnInit {
     private pageTitle: Title
   ) {}
   title = 'Nut';
+  filter = '';
   titles: NutTitle[] = [];
   search: NutGame[] = [];
   downloadedIds: string[] = [];
+
+  displayedTitles: NutTitle[] = [];
 
   downloadedTitles: NutTitle[] = [];
   notDownloadedTitles: NutTitle[] = [];
@@ -105,6 +108,8 @@ export class AppComponent implements OnInit {
     this.notDownloadedUpdates = this.titles.filter(
       (title) => title.isUpdate && !this.downloadedIds.includes(title.id)
     );
+
+    this.displayedTitles = this.downloadedTitles;
   }
 
   titleDialog(title: NutTitle): void {
@@ -182,5 +187,11 @@ export class AppComponent implements OnInit {
   // Page title reset
   resetTitle(): void {
     this.pageTitle.setTitle('Nut - Library');
+  }
+
+  filterTitles(): NutTitle[] {
+    return this.displayedTitles.filter((t) =>
+      t.name.toLowerCase().includes(this.filter.toLowerCase())
+    );
   }
 }
