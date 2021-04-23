@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     this.resetTitle();
 
     // Search all Downloaded titles and create a list of IDs
+    this.downloadedIds = [];
     this.search = await (await this.nut.search()).filter((game) => game.name);
     this.search.forEach((key) => this.downloadedIds.push(key.id));
 
