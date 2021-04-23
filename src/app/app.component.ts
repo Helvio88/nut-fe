@@ -189,6 +189,16 @@ export class AppComponent implements OnInit {
     this.pageTitle.setTitle('Nut - Library');
   }
 
+  // Organize and Scan functions
+  async organize(): Promise<void> {
+    const result = await this.nut.organize();
+    this.alert(result.result);
+  }
+  async scan(): Promise<void> {
+    const result = await this.nut.scan();
+    this.alert(result.result);
+  }
+
   filterTitles(): NutTitle[] {
     return this.displayedTitles.filter((t) =>
       t.name.toLowerCase().includes(this.filter.toLowerCase())

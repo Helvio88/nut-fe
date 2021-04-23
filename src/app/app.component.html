@@ -1,5 +1,7 @@
 <mat-toolbar>
-  <span class="mdi mdi-nut mdi-spin"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
   <span class="fill">&nbsp;Nut</span>
   <mat-form-field>
     <mat-label>Filter Titles</mat-label>
@@ -29,3 +31,14 @@
     </mat-grid-tile-footer>
   </mat-grid-tile>
 </mat-grid-list>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="organize()">
+    <mat-icon>autorenew</mat-icon>
+    <span>Organize Library</span>
+  </button>
+  <button mat-menu-item (click)="scan()">
+    <mat-icon>saved_search</mat-icon>
+    <span>Rescan Library</span>
+  </button>
+</mat-menu>

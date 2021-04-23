@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NutFiles, NutGame, NutTitle } from '../definitions/nut';
+import { NutFiles, NutGame, NutResponse, NutTitle } from '../definitions/nut';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -29,5 +29,13 @@ export class NutService {
 
   info(titleId: string): Promise<NutTitle> {
     return this.http.get<NutTitle>(`/api/info/${titleId}`).toPromise();
+  }
+
+  scan(): Promise<NutResponse> {
+    return this.http.get<NutResponse>('/api/scan').toPromise();
+  }
+
+  organize(): Promise<NutResponse> {
+    return this.http.get<NutResponse>('/api/organize').toPromise();
   }
 }

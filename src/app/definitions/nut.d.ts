@@ -62,3 +62,8 @@ export interface NutDialogData {
   myDLCs: NutTitle[];
   remoteDLCs: NutTitle[];
 }
+
+export interface NutResponse {
+  success: boolean;
+  result: string;
+}
