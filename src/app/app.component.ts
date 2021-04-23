@@ -25,8 +25,6 @@ export class AppComponent implements OnInit {
   search: NutGame[] = [];
   downloadedIds: string[] = [];
 
-  displayedTitles: NutTitle[] = [];
-
   downloadedTitles: NutTitle[] = [];
   notDownloadedTitles: NutTitle[] = [];
 
@@ -37,6 +35,8 @@ export class AppComponent implements OnInit {
   notDownloadedUpdates: NutTitle[] = [];
 
   rankedDownloadedTitles: NutTitle[] = [];
+
+  ownedOnly = true;
 
   cols = 12;
 
@@ -109,8 +109,6 @@ export class AppComponent implements OnInit {
     this.notDownloadedUpdates = this.titles.filter(
       (title) => title.isUpdate && !this.downloadedIds.includes(title.id)
     );
-
-    this.displayedTitles = this.downloadedTitles;
   }
 
   titleDialog(title: NutTitle): void {
@@ -203,8 +201,11 @@ export class AppComponent implements OnInit {
   }
 
   filterTitles(): NutTitle[] {
-    return this.displayedTitles.filter((t) =>
-      t.name.toLowerCase().includes(this.filter.toLowerCase())
+    const titles = this.ownedOnly
+      ? this.downloadedTitles
+      : this.notDownloadedTitles;
+    return titles.filter((t) =>
+      (t.name || '').toLowerCase().includes(this.filter.toLowerCase())
     );
   }
 }

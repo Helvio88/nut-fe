@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
@@ -14,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ClipboardModule } from 'ngx-clipboard';
 
@@ -31,6 +33,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
+    MatCheckboxModule,
     MatInputModule,
     MatGridListModule,
     MatTooltipModule,
@@ -41,6 +44,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     MatButtonModule,
     MatMenuModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
     MatSnackBarModule,
     MatBadgeModule,
     ClipboardModule,
