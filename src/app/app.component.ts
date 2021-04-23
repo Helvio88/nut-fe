@@ -192,10 +192,12 @@ export class AppComponent implements OnInit {
   // Organize and Scan functions
   async organize(): Promise<void> {
     const result = await this.nut.organize();
+    await this.ngOnInit();
     this.alert(result.result);
   }
   async scan(): Promise<void> {
     const result = await this.nut.scan();
+    await this.ngOnInit();
     this.alert(result.result);
   }
 
