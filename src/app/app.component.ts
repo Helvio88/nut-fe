@@ -152,7 +152,7 @@ export class AppComponent implements OnInit {
   getGridSpan(title: NutTitle): number {
     const numberOfTitles = this.downloadedTitles.length;
     const position = this.rankedDownloadedTitles.indexOf(title);
-    return position <= numberOfTitles / 3 ? 4 : 2;
+    return position > numberOfTitles / 1.5 ? 2 : 4;
   }
 
   getIcon(title: NutTitle): string {
