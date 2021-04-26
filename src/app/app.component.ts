@@ -207,8 +207,12 @@ export class AppComponent implements OnInit {
     const titles = this.ownedOnly
       ? this.downloadedTitles
       : this.notDownloadedTitles;
-    return titles.filter((t) =>
-      (t.name || '').toLowerCase().includes(this.filter.toLowerCase())
+    return titles.filter(
+      (t) =>
+        (t.name || '').toLowerCase().includes(this.filter.toLowerCase()) ||
+        (t.publisher || '').toLowerCase().includes(this.filter.toLowerCase()) ||
+        (t.intro || '').toLowerCase().includes(this.filter.toLowerCase()) ||
+        (t.description || '').toLowerCase().includes(this.filter.toLowerCase())
     );
   }
 }
