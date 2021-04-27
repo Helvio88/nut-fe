@@ -1,29 +1,29 @@
-import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatBadgeModule } from '@angular/material/badge';
-import { ClipboardModule } from 'ngx-clipboard';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser'
+import { MatButtonModule } from '@angular/material/button'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatCardModule } from '@angular/material/card'
+import { MatIconModule } from '@angular/material/icon'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatInputModule } from '@angular/material/input'
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatBadgeModule } from '@angular/material/badge'
+import { ClipboardModule } from 'ngx-clipboard'
 
-import { AppComponent } from './app.component';
-import { NutService } from './services/nut.service';
-import { TinfoilService } from './services/tinfoil.service';
-import { TitleDialogComponent } from './title-dialog/title-dialog.component';
-import { FileSizePipe } from './pipes/file-size.pipe';
+import { AppComponent } from './app.component'
+import { NutService } from './services/nut.service'
+import { TinfoilService } from './services/tinfoil.service'
+import { TitleDialogComponent } from './title-dialog/title-dialog.component'
+import { FileSizePipe } from './pipes/file-size.pipe'
 
 @NgModule({
   declarations: [AppComponent, TitleDialogComponent, FileSizePipe],
@@ -47,10 +47,10 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatBadgeModule,
-    ClipboardModule,
+    ClipboardModule
   ],
   exports: [],
   providers: [NutService, TinfoilService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

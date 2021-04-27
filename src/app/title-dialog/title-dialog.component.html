@@ -7,7 +7,7 @@
     />
     <mat-card-title>{{ data.title.name }}</mat-card-title>
     <mat-card-subtitle
-      >Released: {{ getReleaseDate() | date: "shortDate" }} -
+      >Released: {{ getReleaseDate() | date: 'shortDate' }} -
       {{ data.title.size | fileSize }}</mat-card-subtitle
     >
   </mat-card-header>
@@ -81,10 +81,10 @@
     href="/api/download/{{ dlc.id }}"
   >
     <mat-icon>download</mat-icon>
-    <span>{{ dlc.name || "Unnamed DLC" }}</span>
+    <span>{{ dlc.name || 'Unnamed DLC' }}</span>
   </a>
   <button mat-menu-item *ngFor="let dlc of data.remoteDLCs" disabled>
     <mat-icon>file_download_off</mat-icon>
-    <span>{{ dlc.name || "Unnamed DLC" }}</span>
+    <span>{{ dlc.name || 'Unnamed DLC' }}</span>
   </button>
 </mat-menu>
