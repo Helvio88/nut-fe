@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { Title } from '@angular/platform-browser'
 import * as dayjs from 'dayjs'
 import { ClipboardService } from 'ngx-clipboard'
+
 import { NutDialogData, NutTitle } from '../definitions/nut'
 
 @Component({

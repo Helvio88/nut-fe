@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Title } from '@angular/platform-browser'
 import { environment } from 'src/environments/environment'
+
 import { NutGame, NutTitle } from './definitions/nut'
 import { NutService } from './services/nut.service'
 import { TitleDialogComponent } from './title-dialog/title-dialog.component'
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog,
     private pageTitle: Title
   ) {}
+
   title = 'Nut'
   filter = ''
   titles: NutTitle[] = []
@@ -197,6 +199,7 @@ export class AppComponent implements OnInit {
     await this.ngOnInit()
     this.alert(result.result)
   }
+
   async scan(): Promise<void> {
     const result = await this.nut.scan()
     await this.ngOnInit()

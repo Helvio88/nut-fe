@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { NutFiles, NutGame, NutResponse, NutTitle } from '../definitions/nut'
+import { Injectable } from '@angular/core'
 import { environment } from 'src/environments/environment'
+
+import { NutFiles, NutGame, NutResponse, NutTitle } from '../definitions/nut'
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * @license
  * Copyright (c) 2019 Jonathan Catmull.
